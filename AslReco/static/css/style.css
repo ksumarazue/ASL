@@ -1,0 +1,77 @@
+/* style.css */
+
+/* Style dla header */
+header {
+    background-color: #f2f2f2;
+    padding: 20px;
+    font-size:25px;
+    text-align:center;
+    
+}
+
+/* Style dla body */
+/* body {
+    padding: 20px;
+} */
+
+/* Style dla footer */
+footer {
+    background-size: cover;
+    background-color: #f2f2f2;
+    padding: 20px;
+}
+
+header a {
+    display: inline-block;
+    padding: 10px 20px;
+    margin-right: 10px;
+    background-color: #f2f2f2;
+    color: #333;
+    text-decoration: none;
+    border-radius: 3px;
+}
+
+/* Styl dla aktywnego przycisku */
+header a.active {
+    background-color: #333;
+    color: #fff;
+}
+
+/* Dodatkowe style, według preferencji */
+header a:hover {
+    background-color: #ddd;
+}
+
+.content {
+    margin: 4rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+.info_container li,
+.info_container span {
+    font-size: var(--normal-font-size);
+  }
+
+.gallery {
+    display: grid;
+    grid-template-columns: auto auto auto auto auto auto auto auto auto;
+    /* grid-template-columns: repeat(auto-fill, minmax(40px, 20px)); */
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+}
+
+.card img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    cursor: pointer;
+}
+
+.card-info{
+    text-align:center;
+}

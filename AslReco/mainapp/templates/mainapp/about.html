@@ -1,0 +1,50 @@
+<!-- home.html -->
+
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+    <title>ASL Reco - about</title>
+    <!-- Dodaj tutaj link do pliku CSS -->
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <header>
+        <div class="header">
+            <div class="header_head">
+            <h1>Asl image Prediction with Django</h1>
+              <div class="header_menu">
+                <a href="{% url 'home' %}">Strona główna</a>
+                <a href="{% url 'about' %}">O aplikacji</a>
+                <a href="{% url 'contact' %}">Kontakt</a>
+              </div>
+            </div>
+          </div>        
+    </header>
+    
+    <div class="content">
+        <!-- Dodaj tutaj zawartość główna strony -->
+        <div class="description">
+            <h1>Welcome to ASL Reco</h1>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            <div class="gallery">
+                {% for image in images %}
+                    <div class="card">
+                        <img src="{% static 'dataset/' %}{{ image.filename }}" alt="{{ image.alt }}">
+                        <div class="card-info">
+                            <h3>{{ image.title }}</h3>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+
+        
+    </div>
+    
+    <footer>
+        <!-- Dodaj tutaj stopkę strony -->
+        <p> 2023 ASL Reco. All rights reserved.</p>
+    </footer>
+</body>
+</html>

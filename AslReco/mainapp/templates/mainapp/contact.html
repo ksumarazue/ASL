@@ -1,0 +1,39 @@
+<!-- home.html -->
+
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+    <title>ASL Reco - contact</title>
+    <!-- Dodaj tutaj link do pliku CSS -->
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <header>
+        <div class="header">
+            <div class="header_head">
+            <h1>Asl image Prediction with Django</h1>
+              <div class="header_menu">
+                <a href="{% url 'home' %}">Strona główna</a>
+                <a href="{% url 'about' %}">O aplikacji</a>
+                <a href="{% url 'contact' %}">Kontakt</a>
+              </div>
+            </div>
+          </div>
+        <title>CNN Image Prediction</title>
+        <!-- Dodaj tutaj przyciski Home, About i Contact -->
+        
+    </header>
+    
+    <div class="content">
+        <!-- Dodaj tutaj zawartość główna strony -->
+        <h1>Welcome to ASL Reco</h1>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+    </div>
+    
+    <footer>
+        <!-- Dodaj tutaj stopkę strony -->
+        <p>&copy; 2023 ASL Reco. All rights reserved.</p>
+    </footer>
+</body>
+</html>

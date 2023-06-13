@@ -1,0 +1,67 @@
+<!-- home.html -->
+
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+    <title>ASL Reco - Home</title>
+    <!-- Dodaj tutaj link do pliku CSS -->
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <header>
+        <div class="header">
+            <div class="header_head">
+            <h1>Asl image Prediction with Django</h1>
+              <div class="header_menu">
+                <a href="{% url 'home' %}">Strona główna</a>
+                <a href="{% url 'about' %}">O aplikacji</a>
+                <a href="{% url 'contact' %}">Kontakt</a>
+              </div>
+            </div>
+          </div>        
+    </header>
+    
+    <div class="content">
+        <div class="post">
+            <form method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+                <input
+                class="custom-file-upload"
+                type="file"
+                accept="image"
+                name="image"
+                id="file"
+                />
+                <button class="compress_image" type="submit" id="submitBtn">
+                Predict ASL
+                </button>
+                <div class="status">
+                <p id="message">{{ message }}</p>
+                </div>
+            </form>
+        
+            <div class="wrapper">
+                <img
+                src="{% if image_url %}{{ image_url }}{% else %}{% static 'images/default.png' %}{% endif %}"
+                alt="Compressed Image"
+                width="400px"
+                />
+        
+                <div class="info_container">
+                    <ul>
+                        <li>Nazwa pliku: <span class="name">{{ image.name }}</span></li>
+                        <li>Rozpoznano: <span class="type">{{ prediction }}</span></li>
+                        <li>Wynik: <span class="score">{{ score }}</span></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <footer>
+        <!-- Dodaj tutaj stopkę strony -->
+        <p>&copy; 2023 ASL Reco. All rights reserved.</p>
+    </footer>
+</body>
+</html>
