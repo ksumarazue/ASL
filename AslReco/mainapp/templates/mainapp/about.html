@@ -1,18 +1,15 @@
-<!-- home.html -->
-
 <!DOCTYPE html>
 {% load static %}
 <html>
-<head>
+<head style="font-family: 'Courier New', Courier, monospace;">
     <title>ASL Reco - about</title>
-    <!-- Dodaj tutaj link do pliku CSS -->
     <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
 </head>
-<body>
+<body style="font-family: 'Courier New', Courier, monospace;"> 
     <header>
         <div class="header">
             <div class="header_head">
-            <h1>Asl image Prediction with Django</h1>
+            <h1>ASL Reco</h1>
               <div class="header_menu">
                 <a href="{% url 'home' %}">Strona główna</a>
                 <a href="{% url 'about' %}">O aplikacji</a>
@@ -23,10 +20,13 @@
     </header>
     
     <div class="content">
-        <!-- Dodaj tutaj zawartość główna strony -->
-        <div class="description">
-            <h1>Welcome to ASL Reco</h1>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            <div class="description">
+            <h1>O aplikacji ASL Reco</h1>
+            <p>Aplikacja ASL Reco powstała w wyniku pracy dyplomowej pt. Projekt oraz realizacja aplikacji do rozpoznawania alfabetu języka migowego.</p>
+            <p>W ramach pracy dyplomowej stworzono konwolucyjną sieć neuronową która, została wykorzystana w niniejszej aplikacji.</p>
+            <p>Stworzony model sieci neuronowej został wyuczony na danych z strony <a href="https://www.kaggle.com/datasets/ardamavi/27-class-sign-language-dataset">kaggle.com</a> .</p>
+            <p>Aplikacja ASL Reco stworzona została w technologi DJANGO.</p>
+            <p>Poniżej przedstawiono przykładowe zdjęcia wykorzystane podczas trenowania modelu.</p>
             <div class="gallery">
                 {% for image in images %}
                     <div class="card">
@@ -38,12 +38,9 @@
                 {% endfor %}
             </div>
         </div>
-
-        
     </div>
     
     <footer>
-        <!-- Dodaj tutaj stopkę strony -->
         <p> 2023 ASL Reco. All rights reserved.</p>
     </footer>
 </body>

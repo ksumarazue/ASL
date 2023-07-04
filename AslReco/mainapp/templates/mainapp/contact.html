@@ -1,18 +1,15 @@
-<!-- home.html -->
-
 <!DOCTYPE html>
 {% load static %}
 <html>
-<head>
+<head style="font-family: 'Courier New', Courier, monospace;">
     <title>ASL Reco - contact</title>
-    <!-- Dodaj tutaj link do pliku CSS -->
     <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
 </head>
-<body>
-    <header>
+<body style="font-family: 'Courier New', Courier, monospace;"> 
+  <header>
         <div class="header">
             <div class="header_head">
-            <h1>Asl image Prediction with Django</h1>
+            <h1>ASL Reco</h1>
               <div class="header_menu">
                 <a href="{% url 'home' %}">Strona główna</a>
                 <a href="{% url 'about' %}">O aplikacji</a>
@@ -20,19 +17,17 @@
               </div>
             </div>
           </div>
-        <title>CNN Image Prediction</title>
-        <!-- Dodaj tutaj przyciski Home, About i Contact -->
-        
+        <title>CNN Image Prediction</title>        
     </header>
     
     <div class="content">
-        <!-- Dodaj tutaj zawartość główna strony -->
-        <h1>Welcome to ASL Reco</h1>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+      <div class="description">
+        <h2>Kontakt do twórcy aplikacji</h2>
+        <p>k.sumara@student.po.edu.pl</p>
+      </div>
     </div>
     
     <footer>
-        <!-- Dodaj tutaj stopkę strony -->
         <p>&copy; 2023 ASL Reco. All rights reserved.</p>
     </footer>
 </body>

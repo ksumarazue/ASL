@@ -29,15 +29,17 @@ def home(request):
     fss = CustomFileSystemStorage()
     try:
         image = request.FILES["image"]
+        print(image)
         file_type = image.content_type
         if file_type not in ["image/jpeg", "image/png", "image/gif", "image/bmp", "image/tiff", "image/svg+xml"]:
             return TemplateResponse(
             request,
             "home.html",
-            {"message": "Invalid image type, select jpeg, bnp or other image type"},
+            {"message": "Wybrano niepoprawny rodzaj danych, wybierz zdjęcie"},
             )
         print("Name", image.file)
         print("Type file ", image.content_type)
+
         _image = fss.save(image.name, image)
         path = str(settings.MEDIA_ROOT) + "/" + image.name
         # image details
@@ -45,29 +47,17 @@ def home(request):
 
         # Read the image
         imag = tf.io.read_file(path)
-        
         img_from_ar = tf.image.decode_image(imag, channels=3)
-    
         resized_image = tf.image.resize(img_from_ar, size = [img_shape, img_shape])
-        
         resized_image = resized_image/255.
-
-        model = tf.keras.models.load_model(os.getcwd() + '/model13.h5')
-
-        # result = model.predict(test_image) 
+        model = tf.keras.models.load_model(os.getcwd() + '/model4.h5')
         pred = model.predict(tf.expand_dims(resized_image, axis=0))
         result = round (100 * np.amax(pred), 4)
         result = str(result) + "%"
-        print(result)
 
-        if len(pred[0]) > 1: # check for multi-class
-            pred_class = class_names[pred.argmax()] # if more than one output, take the max
-            print(pred)
-
-        else:
-            pred_class = class_names[int(tf.round(pred)[0][0])] # if only one output, round
+        pred_class = class_names[pred.argmax()] # if more than one output, take the max
+        print(pred)
         print("Prediction: " + str(np.argmax(pred)))
-
         prediction = pred_class 
         
         return TemplateResponse(
